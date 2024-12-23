@@ -51,6 +51,7 @@ def main():
         count = 0
         for row in rows:
             go_to_create_form(driver, wait)
+            print(row)
             fill_form(driver, wait, row)
             print(f"Form filled successfully for row: {first_row+count}")
             count += 1

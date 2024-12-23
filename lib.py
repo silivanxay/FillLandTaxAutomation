@@ -39,7 +39,9 @@ def get_road_type_value(key):
 def get_land_type(key):
     if "ປຸກສ້າງ" in key:
         return 2
-    return 1
+    elif "ກະສິ" in key:
+        return 1
+    return 0
 
 def get_land_subtype(key):
     if "ສວນ" in key:
@@ -54,7 +56,7 @@ def get_land_subtype(key):
         return 4
     elif "ຊ້າ" in key:
         return 5
-    return 5
+    return 0
 
 def get_land_zone(key):
     if "ອາ" in key:
@@ -69,7 +71,7 @@ def get_land_zone(key):
         return 2
     elif "ຊ້າ" in key:
         return 4
-    return 4
+    return 0
 
 def get_village(row):
     village_name = row.get("village", "")

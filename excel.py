@@ -36,8 +36,6 @@ def import_excel_rows(file_path, sheet_name, first_row, last_row):
         objects = [row.to_dict() for _, row in data.iterrows()]
 
         print("\nSelected rows converted to objects:")
-        for obj in objects:
-            print(obj)
         return objects
     except Exception as e:
         print(f"An error occurred: {e}")
