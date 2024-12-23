@@ -8,6 +8,8 @@ from lib import (
     get_land_type,
     get_land_subtype,
     get_land_zone,
+    get_village,
+    get_village_zone
 )
 
 
@@ -23,7 +25,7 @@ def select_land_village(driver, wait, row):
         )
     driver.execute_script("arguments[0].scrollIntoView(true);",
                           land_village_select)
-    village_name = row.get("village", "")
+    village_name = get_village(row)
     select = wait.until(
             EC.element_to_be_clickable(
                 (By.XPATH,
@@ -45,12 +47,14 @@ def select_village(driver, wait, row):
         )
     driver.execute_script("arguments[0].scrollIntoView(true);",
                           village_select)
-    village_name = row.get("village", "")
+    village_name = get_village(row)
     select = wait.until(
             EC.element_to_be_clickable(
                 (By.XPATH,
                  f'//li[@class="active-result" and text()="{village_name}"]'))
         )
+    driver.execute_script("arguments[0].scrollIntoView(true);", select)
+    driver.execute_script("window.scrollBy(0, -200);")
     select.click()
 
 
@@ -67,7 +71,7 @@ def select_address_village(driver, wait, row):
         )
     driver.execute_script("arguments[0].scrollIntoView(true);",
                           village_select)
-    village_name = row.get("village", "")
+    village_name = get_village(row)
     select = wait.until(
             EC.element_to_be_clickable(
                 (By.XPATH,
@@ -94,6 +98,8 @@ def select_district(driver, wait):
                 (By.XPATH,
                  f'//li[@class="active-result" and text()="{district_name}"]'))
         )
+    driver.execute_script("arguments[0].scrollIntoView(true);", select)
+    driver.execute_script("window.scrollBy(0, -200);")
     select.click()
 
 
@@ -183,7 +189,7 @@ def select_zone(driver, wait, row):
     driver.execute_script("arguments[0].scrollIntoView(true);", village_select)
     # Adjust the scroll again to ensure it's not under the navbar
 
-    village_name = row.get("village", "")
+    village_name = get_village_zone(row)
     zone = find_zone_by_village(village_name)
     print("zone:", zone)
 

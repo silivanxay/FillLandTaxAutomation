@@ -46,11 +46,11 @@ def main():
 
         # Navigate to the create form page
         go_to_mainmenu(wait)
-        go_to_create_form(wait)
 
         # Iterate through each row and fill the form
         count = 0
         for row in rows:
+            go_to_create_form(driver, wait)
             fill_form(driver, wait, row)
             print(f"Form filled successfully for row: {first_row+count}")
             count += 1

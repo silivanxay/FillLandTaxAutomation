@@ -52,6 +52,8 @@ def get_land_subtype(key):
         return 4
     elif "ສ້າງ" in key:
         return 4
+    elif "ຊ້າ" in key:
+        return 5
     return 5
 
 def get_land_zone(key):
@@ -65,4 +67,43 @@ def get_land_zone(key):
         return 3
     elif "ກະ" in key:
         return 2
+    elif "ຊ້າ" in key:
+        return 4
     return 4
+
+def get_village(row):
+    village_name = row.get("village", "")
+    if village_name == "ສີສະຫວ່າງເໜືອ":
+        village_name = "ສີສະຫວ່າງເຫນືອ"
+    elif village_name == "ສີສະຫວ່າງໃຕ້":
+        village_name = "ສີສະຫວ່າງໄຕ້"
+    elif village_name == "ດົງໝາກໝີ້":
+        village_name = "ດົງຫມາກຫມີ້"
+    elif village_name == "ດົງໝາກມີ້":
+        village_name = "ດົງຫມາກມີ້"
+    elif village_name == "ນາໝາກເກືອ":
+        village_name = "ນາຫມາກເກືອ"
+    elif village_name == "ເຫຼົ່າໝາກຫູດ":
+        village_name = "ເຫຼົ່າຫມາກຫູດ"
+    elif village_name == "ດົງໝາກໄຟ":
+        village_name = "ດົງຫມາກໄຟ"
+    return village_name
+
+
+def get_village_zone(row):
+    village_name = row.get("village", "")
+    if village_name == "ສີສະຫວ່າງເໜືອ":
+        village_name = "ສີສະຫວ່າງເໝືອ"
+    elif village_name == "ສີສະຫວ່າງໃຕ້":
+        village_name = "ສີສະຫວ່າງໃຕ້"
+    elif village_name == "ດົງໝາກໝີ້":
+        village_name = "ດົງຫມາກຫມີ້"
+    elif village_name == "ດົງໝາກມີ້":
+        village_name = "ດົງຫມາກມີ້"
+    elif village_name == "ນາໝາກເກືອ":
+        village_name = "ນາໜາກເກືອ"
+    elif village_name == "ເຫຼົ່າໝາກຫູດ":
+        village_name = "ເຫຼົ່າໜາກຫູດ"
+    elif village_name == "ດົງໝາກໄຟ":
+        village_name = "ດົງໜາກໄຟ"
+    return village_name
