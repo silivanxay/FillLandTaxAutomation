@@ -83,12 +83,12 @@ def fill_form(driver, wait, row):
         print("Selecting land zone...")
         fill_subarea(wait, row)
         print("Filling subarea...")
-        click_submit(wait)
-        click_save(wait)
-        click_confirm(wait)
+        # click_submit(wait)
+        # click_save(wait)
+        # click_confirm(wait)
         time.sleep(3)
-        click_okay(wait)
+        # click_okay(wait)
         # Simulate saving or submitting the form here if needed
-        time.sleep(2)  # Pause to simulate user interaction
+        time.sleep(100)  # Pause to simulate user interaction
     except Exception as e:
         print(f"An error occurred while filling the form: {e}")

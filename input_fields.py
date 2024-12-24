@@ -65,9 +65,9 @@ def fill_longtitude(wait, row):
             EC.presence_of_element_located(
                 (By.XPATH, '//*[@id="lng"]'))
         )
-    longtitude_value = row.get("y", "")
+    longtitude_value = row.get("x", "")
     longtitude_input.send_keys(longtitude_value)
-    
+
 
 def fill_subarea(wait, row):
     input_field = wait.until(
